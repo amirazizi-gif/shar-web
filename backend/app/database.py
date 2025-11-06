@@ -1,11 +1,5 @@
-from postgrest import PostgrestClient
+from supabase import create_client, Client
 from app.config import settings
 
-def get_supabase():
-    return PostgrestClient(
-        f"{settings.supabase_url}/rest/v1",
-        headers={
-            "apikey": settings.supabase_key,
-            "Authorization": f"Bearer {settings.supabase_key}"
-        }
-    )
+def get_supabase() -> Client:
+    return create_client(settings.supabase_url, settings.supabase_key)
