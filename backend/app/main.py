@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.routes import projects
+import os
 
 app = FastAPI(
     title="SHAR Associates API",
@@ -9,10 +10,20 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS middleware
+# CORS middleware - Update with your production URLs
+origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://your-frontend-url.vercel.app",  # Add your Vercel URL here
+]
+
+# Get CORS origins from environment variable
+if settings.cors_origins:
+    origins.extend(settings.cors_origins.split(","))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins_list,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,9 +37,16 @@ async def root():
     return {
         "message": "SHAR Associates API",
         "version": "1.0.0",
-        "docs": "/docs"
+        "docs": "/docs",
+        "status": "running"
     }
 
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+# For local development
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
