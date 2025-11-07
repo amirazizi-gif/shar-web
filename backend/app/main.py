@@ -14,7 +14,7 @@ app = FastAPI(
 origins = [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://your-frontend-url.vercel.app",  # Add your Vercel URL here
+    "https://shar-web.vercel.app/",  # Add your Vercel URL here
 ]
 
 # Get CORS origins from environment variable
