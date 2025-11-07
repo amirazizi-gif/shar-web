@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Background() {
   const companyHighlights = [
     {
@@ -278,9 +280,9 @@ export default function Background() {
           <p className="text-xl mb-8 text-orange-50 max-w-2xl mx-auto">
             Experience two decades of engineering excellence. Contact us to discuss your next project.
           </p>
-          <a href="/contact" className="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-bold hover:bg-orange-50 transition shadow-lg">
+          <Link href="/contact" className="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-bold hover:bg-orange-50 transition shadow-lg">
             Get In Touch
-          </a>
+          </Link>
         </div>
       </section>
     </div>

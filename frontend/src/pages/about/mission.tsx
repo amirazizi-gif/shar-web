@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   const milestones = [
     { year: '2004', event: 'Company Incorporation', description: 'SHAR Associates Sdn Bhd established with RM 1,000,000 authorized capital' },
@@ -224,9 +226,9 @@ export default function About() {
           <p className="text-xl mb-8 text-orange-50 max-w-2xl mx-auto">
             Contact us to discuss how our expertise can help bring your project to life.
           </p>
-          <a href="/contact" className="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-bold hover:bg-orange-50 transition shadow-lg">
+          <Link href="/contact" className="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-bold hover:bg-orange-50 transition shadow-lg">
             Get In Touch
-          </a>
+          </Link>
         </div>
       </section>
     </div>

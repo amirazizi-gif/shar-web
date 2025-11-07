@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function OrganizationChart() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -24,7 +26,7 @@ export default function OrganizationChart() {
               <div className="text-center">
                 <div className="bg-gradient-to-br from-orange-600 to-orange-500 text-white px-8 py-6 rounded-lg shadow-lg inline-block min-w-[200px]">
                   <div className="w-24 h-24 bg-white rounded-full mx-auto mb-3 overflow-hidden border-4 border-orange-200">
-                    <img
+                    <Image
                       src="https://via.placeholder.com/150/ea580c/ffffff?text=MD"
                       alt="Managing Director"
                       className="w-full h-full object-cover"
@@ -45,7 +47,7 @@ export default function OrganizationChart() {
               <div className="text-center">
                 <div className="bg-gradient-to-br from-orange-500 to-orange-400 text-white px-8 py-6 rounded-lg shadow-lg inline-block min-w-[200px]">
                   <div className="w-24 h-24 bg-white rounded-full mx-auto mb-3 overflow-hidden border-4 border-orange-200">
-                    <img
+                    <Image
                       src="https://via.placeholder.com/150/f97316/ffffff?text=ED"
                       alt="Executive Director"
                       className="w-full h-full object-cover"
@@ -126,10 +128,12 @@ export default function OrganizationChart() {
               <div className="text-center">
                 <div className="bg-orange-500 text-white px-4 py-3 rounded-lg shadow-md inline-block">
                   <div className="w-16 h-16 bg-white rounded-full mx-auto mb-2 overflow-hidden border-3 border-orange-200">
-                    <img
-                      src="https://via.placeholder.com/100/fb923c/ffffff?text=RR"
+                    <Image
+                      src="/images/rosnah.jpg"
                       alt="Rosnah Binti Rakiah"
                       className="w-full h-full object-cover"
+                      width={100}
+                      height={100}
                     />
                   </div>
                   <div className="font-semibold text-xs">Rosnah Binti</div>
