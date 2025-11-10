@@ -67,8 +67,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('/images/projects/home.jpg')",
+            backgroundImage: "url('/images/projects/home.jpg')",
           }}
         ></div>
 
@@ -82,7 +81,7 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-orange-50">
               Multi-discipline engineering excellence across Civil, Mechanical,
-              Electrical, and Event Management services in Sabah.
+              Electrical, ICT Works and Event Management services in Sabah.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link

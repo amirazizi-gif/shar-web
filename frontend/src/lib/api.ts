@@ -1,5 +1,8 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
+// Add this line to see what URL is being used
+console.log("🔍 API_URL:", API_URL);
+
 export interface Project {
   id: number;
   category: string;
@@ -18,6 +21,8 @@ async function fetchWithTimeout(
   options: RequestInit = {},
   timeout = 60000
 ) {
+  console.log("📡 Fetching URL:", url); // Debug log
+
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
@@ -27,9 +32,11 @@ async function fetchWithTimeout(
       signal: controller.signal,
     });
     clearTimeout(timeoutId);
+    console.log("✅ Response status:", response.status); // Debug log
     return response;
   } catch (error: unknown) {
     clearTimeout(timeoutId);
+    console.error("❌ Fetch error:", error); // Debug log
     if (error instanceof Error && error.name === "AbortError") {
       throw new Error(
         "Request timeout - server may be starting up. Please try again."
@@ -115,5 +122,38 @@ export async function deleteProject(id: number): Promise<void> {
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.detail || "Failed to delete project");
+  }
+}
+
+// Upload images
+export async function uploadImages(files: File[]): Promise<string[]> {
+  const formData = new FormData();
+  files.forEach((file) => {
+    formData.append('files', file);
+  });
+
+  const response = await fetch(`${API_URL}/api/upload/images`, {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.detail || 'Failed to upload images');
+  }
+
+  const data = await response.json();
+  return data.urls;
+}
+
+// Delete image
+export async function deleteImage(imageUrl: string): Promise<void> {
+  const response = await fetch(`${API_URL}/api/upload/images?image_url=${encodeURIComponent(imageUrl)}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.detail || 'Failed to delete image');
   }
 }
