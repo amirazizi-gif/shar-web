@@ -1,16 +1,10 @@
-# fastapi==0.104.1
-# uvicorn[standard]==0.24.0
-# supabase==2.3.4
-# python-dotenv==1.0.0
-# pydantic==2.10.6
-# pydantic-settings==2.7.0
-# httpx==0.25.2
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-dotenv==1.0.1
+python-multipart==0.0.6
+pydantic==2.6.0
+pydantic-settings==2.1.0
 
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-supabase==2.3.4
-python-dotenv==1.0.0
-pydantic==1.10.13
-httpx==0.25.2
-python-multipart==0.0.9
-cup==3.2.32
+# Latest Supabase
+supabase==2.4.0
+httpx==0.26.0

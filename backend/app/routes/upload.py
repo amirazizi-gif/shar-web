@@ -1,8 +1,8 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from typing import List
-from app.database import get_supabase
+from supabase import create_client
+from app.config import settings
 import uuid
-from datetime import datetime
 
 router = APIRouter(prefix="/api/upload", tags=["upload"])
 
@@ -12,7 +12,8 @@ async def upload_images(files: List[UploadFile] = File(...)):
     if len(files) > 4:
         raise HTTPException(status_code=400, detail="Maximum 4 images allowed")
     
-    supabase = get_supabase()
+    # Use service role key for uploads (bypasses RLS)
+    supabase = create_client(settings.supabase_url, settings.supabase_service_key)
     uploaded_urls = []
     
     try:
@@ -49,10 +50,10 @@ async def upload_images(files: List[UploadFile] = File(...)):
 async def delete_image(image_url: str):
     """Delete an image from Supabase Storage"""
     try:
-        supabase = get_supabase()
+        # Use service role key for deletes (bypasses RLS)
+        supabase = create_client(settings.supabase_url, settings.supabase_service_key)
         
         # Extract file path from URL
-        # URL format: https://xxx.supabase.co/storage/v1/object/public/project-images/projects/filename.jpg
         file_path = image_url.split("/project-images/")[-1]
         
         supabase.storage.from_("project-images").remove([file_path])
