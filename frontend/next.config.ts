@@ -3,7 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["tsx", "ts", "jsx", "js"],
   images: {
-    domains: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ftlzxeaneookahynrzkl.supabase.co",
+        port: "",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
   },
 };
 
