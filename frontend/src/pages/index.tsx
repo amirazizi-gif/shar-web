@@ -292,6 +292,10 @@ export default function Home() {
       image: "/images/projects/home.jpg", // Engineering Support
       alt: "construction site",
     },
+    {
+      image: "/images/hero/ict.jpg", // Engineering Support
+      alt: "ict works",
+    },
   ];
 
   // Auto-slide every 5 seconds
