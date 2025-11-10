@@ -142,7 +142,7 @@ from typing import List
 from app.schemas.project import ProjectCreate, ProjectUpdate, ProjectResponse
 from app.database import get_supabase
 
-router = APIRouter(prefix="/api/projects", tags=["projects"])
+router = APIRouter(prefix="api/projects", tags=["projects"])
 
 @router.get("/", response_model=List[ProjectResponse])
 async def get_all_projects(category: str = None):
