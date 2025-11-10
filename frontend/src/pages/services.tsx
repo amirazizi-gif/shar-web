@@ -141,14 +141,14 @@ export default function Services() {
       title: "Engineering Support Services",
       icon: "🛠️",
       description:
-        "Advanced technical services including LiDAR mapping, solar solutions, and condition monitoring",
+        "Advanced technical services including LiDAR mapping, solar solutions, and Non-Destructive Testing (NDT) monitoring",
       offerings: [
         {
-          name: "LiDAR & Mapping",
+          name: "Aerial(Drone) Services",
           details: [
             "Aerial Survey",
             "Topographic Mapping",
-            "Underground Utility Mapping",
+            "Drone Technology Services",
             "Geospatial Analysis",
           ],
         },
@@ -162,7 +162,7 @@ export default function Services() {
           ],
         },
         {
-          name: "Monitoring Services",
+          name: " NDT Monitoring Services",
           details: [
             "Thermography Survey",
             "Ultrasound Testing",
